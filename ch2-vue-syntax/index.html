@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue模板语法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--    文本    -->
+    <span>Message: {{msg}}</span><br>
+    <span v-once>这个将不会改变: {{msg}}</span>  <!-- v-once执行一次性的插值 -->
+    <!--    原始html   -->
+    <p>Using mustaches: {{ rawHtml }}</p>
+    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    <!--    属性    -->
+    <button v-bind:disabled="isButtonDisabled">button</button>
+</div>
+
+<script type="text/javascript">
+    // 插值
+    const app = new Vue({
+        el: '#app',
+        data: {
+            msg: '模板语句',
+            rawHtml: '<span style="color: red">This is should be red</span>',
+            isButtonDisabled: true
+        }
+    })
+
+    // 指令 (Directives) 是带有 v- 前缀的特殊 attribute
+
+</script>
+</body>
+</html>
