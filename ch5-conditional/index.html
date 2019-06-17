@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app" v-if="Math.random() > 0.5">
+    Now you see me
+</div>
+<div v-else>
+    Now you don't
+</div>
+<script type="text/javascript">
+    new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
