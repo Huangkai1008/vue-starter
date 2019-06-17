@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--  文本  -->
+<div id="app">
+    <label>
+        <input v-model="message" placeholder="edit me">
+    </label>
+    <p>Message is: {{message}}</p>
+</div>
+
+<!--  多行文本  -->
+<div id="app-2">
+    <span>多行文本是:</span>
+    <p style="white-space: pre-line">{{message}}</p>
+    <br>
+    <label>
+        <textarea v-model="message" placeholder="添加多行文本"></textarea>
+    </label>
+</div>
+
+<!--  复选框  -->
+<div id='example-3'>
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames }}</span>
+</div>
+
+<!--  单选框  -->
+<div id="example-4">
+    <input type="radio" id="one" value="One" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+</div>
+
+<!-- 选择框  -->
+
+<div id="example-5">
+    <label>
+        <select v-model="selected">
+            <option disabled value="">请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+    </label>
+    <span>Selected: {{selected}}</span>
+</div>
+
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message: ''
+        }
+    });
+
+    new Vue({
+        el: '#app-2',
+        data: {
+            message: null
+        }
+    });
+
+    new Vue({
+        el: '#example-3',
+        data: {
+            checkedNames: []
+        }
+    });
+
+    new Vue({
+        el: '#example-4',
+        data: {
+            picked: ''
+        }
+    });
+
+    new Vue({
+        el: '#example-5',
+        data: {
+            selected: ''
+        }
+    });
+</script>
+</body>
+</html>
