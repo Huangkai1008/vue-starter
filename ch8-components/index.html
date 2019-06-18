@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件基础</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="components-demo">
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <!--    每次使用一次组件，都会有一个它的新实例被创建   -->
+    <!--    一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝   -->
+</div>
+
+<div id="components-props">
+    <blog-post title="My journey with Vue"></blog-post>
+    <blog-post title="Blogging with Vue"></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+</div>
+<script type="text/javascript">
+    // 组件基础
+    // 定义一个名为button-counter的新组件(Vue.component的注册方式为全局注册)
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button @click="count++">You Clicked {{count}} times</button>'
+    });
+
+    new Vue({el: '#components-demo'});
+
+    // 通过props向子组件传递数据
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    });
+
+
+    new Vue({el: '#components-props'});
+
+    // 监听子组件事件
+    new Vue({
+        el: '#blog-posts-events-demo',
+        data: {
+            posts: [/*...*/],
+            postFontSize: 1
+        }
+    })
+
+</script>
+</body>
+</html>
